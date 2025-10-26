@@ -1,17 +1,30 @@
 # IEWebTeamRec
-NITK Student Profile Dashboard (MERN Stack): A secure administrative portal for managing student records, built with React, Node.js/Express, and MongoDB.
+
+🎓 NITK Student Profile Dashboard (MERN Stack)
+This is a secure, full-stack administrative portal built to manage student records for the National Institute of Technology Karnataka (NITK). The application meets all requirements for a robust intermediate web development task by focusing on security, data persistence, and a clean user experience.
 
 
-Student Profile Dashboard
-This is a full-stack web application designed to fulfill the requirements of an administrative task, providing a secure platform for managing student data profiles. The application is built using the MERN stack (MongoDB, Express, React, Node.js) and is branded for the National Institute of Technology Karnataka (NITK).
+✨ Implemented Features
+This project addresses all core requirements and includes bonus features:
 
-Key Features Implemented:
-Full Authentication & Persistence: Secure user login for administrative users using JSON Web Tokens (JWT). The login status is maintained using localStorage across browser refreshes (Requirement a & e).
+1.Full Authentication & Persistence (Req. a & e):
+  a)Secure user login is handled via JSON Web Tokens (JWT) and password hashing with bcrypt.
+  b)Admin login status and token are persisted using localStorage, keeping the user logged in across browser sessions.
 
-Role-Based Access Control (RBAC): All data creation endpoints (POST /api/students) are protected by Admin Middleware, ensuring only authenticated administrators can add new records.
+2.Role-Based Access Control (RBAC):
+  a)The POST /api/students route is protected by Auth Middleware, ensuring only logged-in users with the isAdmin: true flag can create new student records.
 
-Student Data Management: Full backend support for creating and reading student profiles (Requirement d).
+3.Core Data Management (Req. c & d):
+  a)Admins can securely Add New Students via a dedicated form.
+  b)The main dashboard displays all student profiles retrieved from the persistent MongoDB Atlas database.
 
-Modern UI/UX: Features a professional, branded dark theme color scheme and a responsive design layout compatible with mobile devices (Requirement b & f - Bonus).
+4.UI/UX and Branding (Req. b & f):
+  a)Features a custom, professional dark-theme color scheme aligned with NITK branding.
+  b)Layout is responsive, providing a good user experience on both desktop and mobile devices (Bonus Feature).
 
-Database: Persistent storage handled by MongoDB Atlas (Requirement c).
+| Component | Technology | Role |
+| :--- | :--- | :--- |
+| **Frontend** | `React`, `Vite`, `Axios`, `react-router-dom` | UI and API consumption. |
+| **Backend** | `Node.js`, `Express`, `Mongoose` | REST API, Business Logic, JWT validation. |
+| **Database** | `MongoDB Atlas` | Cloud-hosted, persistent data storage. |
+| **Security** | `jsonwebtoken`, `bcryptjs` | Token management and password hashing. |
