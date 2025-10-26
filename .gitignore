@@ -1,0 +1,10 @@
+# Dependency Directories
+/frontend/node_modules
+/backend/node_modules
+
+# Environment Variables
+/backend/.env
+
+# Build Output
+/frontend/dist
+.DS_Store

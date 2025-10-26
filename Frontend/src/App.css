@@ -1,0 +1,210 @@
+
+
+/* --- Global Color Variables --- */
+:root {
+  /* Replace the Stark Dark Grey with a deep, professional blue/green */
+  --color-primary-bg: #14354c;        /* Deep Slate Blue (Professional BG) */
+  --color-secondary-bg: #0e293a;      /* Darker shade for contrast (e.g., card background) */
+  --color-light-text: #fff;           /* White Text */
+  --color-accent: #61dafb;            /* Keep Blue/Cyan for highlights */
+  --color-college-green: #388e3c;     /* A professional Green/Accent */
+  --color-danger: #dc3545;            /* Danger/Logout (Red) */
+  --color-border: #4a6c82;
+}
+
+body {
+  /* Change the body background to the new primary color */
+  background-color: var(--color-primary-bg);
+  color: var(--color-light-text);
+  /* ... rest of the body styles */
+}
+/* Update card/form backgrounds to use secondary color */
+.form-container {
+    background-color: var(--color-secondary-bg); 
+    /* ... rest of form styles */
+}
+
+.App {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto; /* Center the main content */
+}
+
+/* --- General Component Styling (Forms, Buttons) --- */
+.form-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--color-card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+input[type="email"], 
+input[type="password"],
+input[type="text"] {
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    background-color: var(--color-dark-bg); /* Dark input background */
+    color: var(--color-light-text);
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-dark-bg); /* Dark text on bright button */
+}
+
+.btn-danger {
+    background-color: var(--color-danger);
+    color: var(--color-light-text);
+}
+
+.message-error {
+    color: var(--color-danger);
+    margin-top: 10px;
+}
+
+.message-success {
+    color: var(--color-accent);
+    margin-top: 10px;
+}
+
+/* --- Dashboard Specific Styles --- */
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--color-accent); /* Use CSS variable */
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.add-button {
+  /* Make sure the anchor tag looks like a button */
+  text-decoration: none;
+  display: inline-block;
+  margin: 15px 0 25px 0;
+}
+
+.student-list {
+  /* Create the responsive grid layout */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.student-card {
+  padding: 15px;
+  background-color: var(--color-card-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.student-card h3 {
+  color: var(--color-accent);
+  margin-top: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 5px;
+}
+
+
+/* --- Responsive Design (Mobile First) --- */
+
+/* Target screens up to 768px wide (typical tablet/mobile cutoff) */
+@media (max-width: 768px) {
+    
+    /* Center the login/add student forms */
+    .form-container {
+        max-width: 90%; /* Use most of the screen width */
+    }
+
+    /* Stack Header elements vertically on small screens */
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        text-align: left;
+    }
+    
+    .user-info {
+        flex-direction: row; /* Keep user info horizontal */
+    }
+    
+    /* Ensure the list of student cards is only 1 column wide */
+    .student-list {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+    
+    /* Make the buttons and inputs slightly larger for touch targets */
+    .btn, input {
+        font-size: 16px;
+    }
+}
+
+/* --- Enhance Form Inputs and Buttons --- */
+input[type="email"], 
+input[type="password"],
+input[type="text"] {
+    /* Existing styles... */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Add Focus effect for interactivity */
+input[type="email"]:focus, 
+input[type="password"]:focus,
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--color-accent); /* Blue border when focused */
+    box-shadow: 0 0 5px var(--color-accent);
+}
+
+/* Hover effect for buttons */
+.btn:hover {
+    filter: brightness(1.15); /* Slightly brighter on hover */
+    transform: translateY(-1px); /* Slight lift effect */
+}
+
+/* Styling for the Add Student Form layout */
+.add-student-form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for inputs */
+    gap: 15px;
+    align-items: center; /* Vertically center items */
+}
+
+/* Ensure the submit button spans the right width or is aligned */
+.add-student-form button {
+    height: 100%; /* Make the button fill the height of the inputs */
+    align-self: stretch; 
+}
+
+/* --- Responsive fix for the Add Student form (MUST be in the @media block) --- */
+@media (max-width: 768px) {
+    .add-student-form {
+        grid-template-columns: 1fr; /* Stack inputs vertically on mobile */
+    }
+}
